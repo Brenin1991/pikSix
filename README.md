@@ -1,7 +1,7 @@
 # PikSix
 __Version:__ _2019.7.5.1 "Bruce"_
 
-[PikSix Website](https://drive.google.com/open?id=1d7JEpMx4wOuv8DHfB9keb8MvhcNU2gsK)
+[PikSix Website](aaa)
 
 __2019 - Hard Rock Studio__
 
@@ -21,10 +21,10 @@ banners;
 covers for social networks;
 pixel art;__
 
-[Complete presentation (PDF)](https://drive.google.com/open?id=10zD6LBiUUX7oDZ-isjOPX65HvNdgtuop)
+[Complete presentation (PDF)](aaa)
 
 ## License
-#### [License MIT](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
+#### License MIT
 
 ## Prerequisites
 #### Development
@@ -34,7 +34,7 @@ pixel art;__
 * [Java Runtime Environment](https://www.java.com/pt_BR/download/)
 
 #### Documentation
-* [UML DOCs](https://drive.google.com/open?id=1d7JEpMx4wOuv8DHfB9keb8MvhcNU2gsK)
+* [UML DOCs](https://drive.google.com/open?id=1Piu1rMCd0Pl9XzWAnXbizWGnufuZHXJR)
 
 ## Authorship and contributions
 #### 2019 - Hard Rock Studio - [Official Website](https://hardrockstudio.github.io/HardRockStudio-Website/)
