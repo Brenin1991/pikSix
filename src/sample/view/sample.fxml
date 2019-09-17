@@ -12,10 +12,10 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -31,11 +31,10 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                     <MenuItem mnemonicParsing="false" text="New Design" />
-                     <MenuItem mnemonicParsing="false" text="Open Design" />
-                     <MenuItem mnemonicParsing="false" text="Save" />
-                     <MenuItem mnemonicParsing="false" text="Save As" />
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                     <MenuItem mnemonicParsing="false" onAction="#newProject" text="New File" />
+                     <MenuItem mnemonicParsing="false" text="Open File" />
+                     <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save File" />
+                    <MenuItem mnemonicParsing="false" onAction="#onExit" text="Close" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -71,9 +70,6 @@
    </top>
    <left>
       <VBox BorderPane.alignment="CENTER">
-         <children>
-            <TreeView />
-         </children>
          <BorderPane.margin>
             <Insets right="10.0" top="10.0" />
          </BorderPane.margin></VBox>
@@ -315,16 +311,14 @@
       </VBox>
    </right>
    <center>
-      <Pane BorderPane.alignment="CENTER">
+      <Pane prefHeight="600.0" prefWidth="920.0" BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="MainCanva" height="600.0" width="800.0" />
+            <ScrollPane prefHeight="600.0" prefWidth="920.0">
+               <content>
+                  <Canvas fx:id="MainCanva" height="600.0" width="800.0" />
+               </content>
+            </ScrollPane>
          </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </BorderPane.margin>
       </Pane>
    </center>
 </BorderPane>

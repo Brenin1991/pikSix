@@ -1,16 +1,23 @@
 package sample.controller;
 
 import com.jfoenix.controls.*;
+import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import sample.classes.Tools;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -88,6 +95,7 @@ public class PikSixController implements Initializable{
     @FXML
     private Canvas MainCanva;
 
+
     // Variaveis
     private GraphicsContext gc;
     private double posicaox = 0;
@@ -104,14 +112,13 @@ public class PikSixController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gc = MainCanva.getGraphicsContext2D();
-        gc.setFill(Color.WHITE);
-        gc.fillRect(0,0,800, 600);
+        newProject();
         tools = new Tools();
         cbToolsConfig();
         cbShapesConfig();
         draw();
-
         debug();
+        saveFile();
     }
 
     void debug(){
@@ -175,6 +182,36 @@ public class PikSixController implements Initializable{
 
     void desableP(){
         cbTools.disableProperty().bind(cbShapes.valueProperty().isEqualTo("Circle"));
+    }
+
+    public void onExit(){
+        Platform.exit();
+    }
+
+    public void saveFile(){
+        btnSave.setOnMouseClicked(event1 -> {
+            FileChooser fc = new FileChooser();
+            fc.setTitle("Save File");
+            fc.setInitialDirectory(new File("/home"));
+            fc.setInitialFileName("paint");
+            fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG File", "*.png"));
+
+            try{
+                File selectedFile = fc.showSaveDialog(new Stage());
+                if(selectedFile != null){
+                    Image snapshot = MainCanva.snapshot(null, null);
+
+                    ImageIO.write(SwingFXUtils.fromFXImage(snapshot,null), "png", selectedFile);
+                }
+            } catch (Exception e){
+
+            }
+        });
+    }
+
+    public void newProject(){
+        gc.setFill(Color.WHITE);
+        gc.fillRect(0,0,800, 600);
     }
 
 }
