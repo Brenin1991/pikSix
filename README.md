@@ -23,6 +23,10 @@ pixel art;__
 
 [Complete presentation (PDF)](aaa)
 
+![](https://drive.google.com/uc?id=1_2zB_FVy0cdA10N0fh8RJSt7XJvzYko_)
+![](https://drive.google.com/uc?id=1YtRPWrYDf6jMh5q28dBvsLIuzmu8UcZI)
+![](https://drive.google.com/uc?id=1hbvHZRQBV8HPULBBpY-RBRUFTkuTuLGW)
+
 ## License
 #### License MIT
 
@@ -38,6 +42,6 @@ pixel art;__
 
 ## Authorship and contributions
 #### 2019 - Hard Rock Studio - [Official Website](https://hardrockstudio.github.io/HardRockStudio-Website/)
-###### project developer - Breno Campos Ribeiro - [Official Website](https://hardrockstudio.github.io/HardRockStudio-Website/)
+###### project developer - Breno Campos Ribeiro - [Official Website]()
 ###### Font Roboto - Christian Robertson - [Repository Link (GitHub)](https://github.com/google/roboto/)
 ###### JFoenix Library - [Repository Link (GitHub)](https://github.com/jfoenixadmin/JFoenix)
