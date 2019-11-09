@@ -1,5 +1,5 @@
 # PikSix
-__Version:__ _2019.7.5.1 "Bruce"_
+__Version:__ _2019.7.5.2 "Bruce"_
 
 [PikSix Website](aaa)
 
@@ -10,7 +10,7 @@ __2019 - Hard Rock Studio__
 * license
 * Prerequisites
 * Documentation
-* Installation
+* Download
 * Authorship and contributions
 
 ## Presentation
@@ -37,7 +37,11 @@ pixel art;__
 #### Usage Version
 * [Java Runtime Environment](https://www.java.com/pt_BR/download/)
 
-#### Documentation
+## Download
+#### Linux, Windows and Mac
+* [PikSix](https://drive.google.com/open?id=1GksOqyXYs9jCBkEdb9kze0UZTjUuoLfz)
+
+## Documentation
 * [UML DOCs](https://drive.google.com/open?id=1Piu1rMCd0Pl9XzWAnXbizWGnufuZHXJR)
 
 ## Authorship and contributions
