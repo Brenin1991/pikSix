@@ -106,6 +106,10 @@
 
 // accordion
 
+.accordion {
+    -fx-margin: 4 0 4 5;
+}
+
 .accordion .titled-pane > *.content{
     -fx-background-color: #503256;
     -fx-border-color: #503256;
@@ -121,3 +125,28 @@
      -fx-text-fill: white;
      -fx-opacity: 1;
 }
+
+.scroll-pane > .corner {
+    -fx-background-color: #503256;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal, .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb{
+    -fx-background-color: #503256;
+    -fx-background-radius: 5em;
+}
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AboutController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="155.0" fitWidth="157.0" layoutX="223.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/splashIMG.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" layoutX="15.0" layoutY="185.0" prefHeight="200.0" prefWidth="578.0" text="Product Version&#10;PikSix 2019.7.5.2&#10;&#10;Build Information&#10;Date: 2019-08-09&#10;Java Version: 1.8.0_201, Oracle Corporation&#10;&#10;Java&#10;1.8.0_201, Oracle Corporation&#10;&#10;Operating System&#10;Linux&#10;&#10;License&#10;MIT&#10;&#10;GitHub&#10;Brenin1991/pikSix&#10;&#10;2014-2019 Hard Rock Studio.&#10;&#10;Breno Campos Ribeiro" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
