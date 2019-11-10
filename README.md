@@ -1,7 +1,7 @@
 # PikSix
 __Version:__ _2019.7.5.2 "Bruce"_
 
-[PikSix Website](aaa)
+[PikSix Website](https://hardrockstudio.github.io/HardRockStudio-Website/pages/pikSix/index.html)
 
 __2019 - Hard Rock Studio__
 
@@ -14,9 +14,8 @@ __2019 - Hard Rock Studio__
 * Authorship and contributions
 
 ## Presentation
-__PikSix__ is a two-dimensional vector drawing program for graphic design. With this you can create:
+__PikSix__ is a two-dimensional drawing program for graphic design. With this you can create:
 __logos;
-conceptual arts;
 banners;
 covers for social networks;
 pixel art;__
@@ -38,7 +37,7 @@ pixel art;__
 * [Java Runtime Environment](https://www.java.com/pt_BR/download/)
 
 ## Download
-#### Linux, Windows and Mac
+#### Linux
 * [PikSix](https://drive.google.com/open?id=1GksOqyXYs9jCBkEdb9kze0UZTjUuoLfz)
 
 ## Documentation
@@ -46,6 +45,6 @@ pixel art;__
 
 ## Authorship and contributions
 #### 2019 - Hard Rock Studio - [Official Website](https://hardrockstudio.github.io/HardRockStudio-Website/)
-###### project developer - Breno Campos Ribeiro - [Official Website]()
+###### Main developer - Breno Campos Ribeiro - [GitHub profile](https://github.com/Brenin1991/)
 ###### Font Roboto - Christian Robertson - [Repository Link (GitHub)](https://github.com/google/roboto/)
 ###### JFoenix Library - [Repository Link (GitHub)](https://github.com/jfoenixadmin/JFoenix)
