@@ -23,9 +23,9 @@ pixel art;__
 
 [Complete presentation (PDF)](aaa)
 
-![](https://drive.google.com/uc?id=1_2zB_FVy0cdA10N0fh8RJSt7XJvzYko_)
-![](https://drive.google.com/uc?id=1YtRPWrYDf6jMh5q28dBvsLIuzmu8UcZI)
-![](https://drive.google.com/uc?id=1hbvHZRQBV8HPULBBpY-RBRUFTkuTuLGW)
+![](https://github.com/Brenin1991/pikSix/blob/master/screen/1.png)
+![](https://github.com/Brenin1991/pikSix/blob/master/screen/2.png)
+![](https://github.com/Brenin1991/pikSix/blob/master/screen/3.png)
 
 ## License
 #### License MIT
