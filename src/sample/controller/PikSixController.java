@@ -7,11 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.canvas.Canvas;
+import javafx.geometry.Insets;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -33,13 +36,7 @@ public class PikSixController implements Initializable{
     private JFXButton btnSave;
 
     @FXML
-    private JFXComboBox<String> cbTools;
-
-    @FXML
     private JFXComboBox<String> cbShapes;
-
-    @FXML
-    private JFXSlider sldCorner;
 
     @FXML
     private JFXSlider sldOpacity;
@@ -49,9 +46,6 @@ public class PikSixController implements Initializable{
 
     @FXML
     private JFXSlider sldBorderSize;
-
-    @FXML
-    private JFXSlider sldFillSize;
 
     @FXML
     private JFXColorPicker cpBorderColor;
@@ -78,9 +72,6 @@ public class PikSixController implements Initializable{
     private ScrollPane spMain = new ScrollPane();
 
     @FXML
-    private Pane mainPane;
-
-    @FXML
     private JFXTextField tfCanvaW;
 
     @FXML
@@ -92,7 +83,20 @@ public class PikSixController implements Initializable{
     @FXML
     private JFXButton btnClear =  new JFXButton();
 
-    private Canvas mainCanva = new Canvas(800,600);
+    @FXML
+    private Pane mainPane = new Pane();
+
+    @FXML
+    private JFXTextField tfShapePosX;
+
+    @FXML
+    private JFXTextField tfShapePosY;
+
+    @FXML
+    private JFXComboBox cbLayer = new JFXComboBox();
+
+    @FXML
+    private JFXButton btnShapeRemove;
 
     // Var
     public GraphicsContext gc;
@@ -101,7 +105,7 @@ public class PikSixController implements Initializable{
     private String item;
     private Credits credits;
 
-    // Objecto
+    // Objects
     private Tools tools;
 
     static interface ManuseiaContexto {
@@ -110,17 +114,16 @@ public class PikSixController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        gc = mainCanva.getGraphicsContext2D();
         newProject();
         tools = new Tools();
-        cbToolsConfig();
         cbShapesConfig();
         cbFontStyleConfig();
         draw();
         debug();
         saveFile();
+        mainPane.setPrefSize(1100,600);
+        spMain.setContent(mainPane);
         spMain.setPrefSize(1100, 600);
-        spMain.setContent(mainCanva);
 
         btnResize.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -137,6 +140,14 @@ public class PikSixController implements Initializable{
                 System.out.println("Clear");
             }
         });
+
+        btnShapeRemove.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                removeShape();
+                System.out.println("Remove");
+            }
+        });
     }
 
     void debug(){
@@ -144,96 +155,53 @@ public class PikSixController implements Initializable{
         System.out.println("Position y: "+positionY);
     }
 
-    void cbToolsConfig(){
-        cbTools.getItems().addAll("Brush Circle","Brush Rectangle", "Background Color");
-    }
-
     void cbShapesConfig(){
-        cbShapes.getItems().addAll("Rectangle", "Oval", "Line", "Text", "Image");
+        cbShapes.getItems().addAll("Rectangle", "Oval", "Line", "Text", "Image", "Background Color");
     }
 
     void cbFontStyleConfig() { cbbFontStyle.getItems().addAll(Font.getFontNames());}
 
     public void draw(){
-        cbToolsSelect();
         cbShapesSelect();
     }
-
     void cbShapesSelect(){
         cbShapes.setOnMouseEntered(event -> {
             item = cbShapes.getSelectionModel().getSelectedItem();
-
             tools = new Tools();
-
-            mainCanva.setOnMouseClicked(event1 -> {
+            mainPane.setOnMouseClicked(event1 -> {
                 positionX = event1.getX();
                 positionY = event1.getY();
-
+                Double x = Double.parseDouble(tfShapePosX.getText());
+                Double y = Double.parseDouble(tfShapePosY.getText());
                 if(item == "Oval") {
                     System.out.println(item);
-                    mainCanva.setOnMouseClicked(event2 -> {
-                        double p1x = positionX;
-                        double p1y = positionY;
-                        double p2x = event2.getX();
-                        double p2y = event2.getY();
-                        tools.oval(gc, cpFillColor.getValue(), cpBorderColor.getValue(), p1x, p1y, p2x, p2y, sldFillSize.getValue(), sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue());
-                        positionX = p2x;
-                        positionY = p2y;
-                    });
+                    mainPane.getChildren().addAll(tools.oval(cpFillColor.getValue(), cpBorderColor.getValue(), positionX, positionY, x, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue()));
+                    layerCount();
                 }
-
                 if(item == "Rectangle") {
                     System.out.println(item);
-                    mainCanva.setOnMouseClicked(event2 -> {
-                        double p1x = positionX;
-                        double p1y = positionY;
-                        double p2x = event2.getX();
-                        double p2y = event2.getY();
-                        tools.rect(gc, cpFillColor.getValue(), cpBorderColor.getValue(), p1x, p1y, p2x, p2y, sldFillSize.getValue(), sldBorderSize.getValue(), sldCorner.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue());
-                        positionX = p2x;
-                        positionY = p2y;
-                    });
-
+                    mainPane.getChildren().addAll(tools.rect(cpFillColor.getValue(), cpBorderColor.getValue(), positionX, positionY, x, y, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue()));
+                    layerCount();
                 }
-
                 if(item == "Line") {
                     System.out.println(item);
-                    mainCanva.setOnMouseClicked(event2 -> {
+                    mainPane.setOnMouseClicked(event2 -> {
                         double p1x = positionX;
                         double p1y = positionY;
                         double p2x = event2.getX();
                         double p2y = event2.getY();
-                        tools.line(gc, sldBorderSize.getValue(), cpBorderColor.getValue(), p1x, p1y, p2x, p2y, sldOpacity.getValue());
+                        mainPane.getChildren().addAll(tools.line(sldBorderSize.getValue(), cpBorderColor.getValue(), p1x, p1y, p2x, p2y, sldOpacity.getValue()));
                         positionX = p2x;
                         positionY = p2y;
+                        layerCount();
                     });
 
                 }
                 if(item == "Text") {
                     System.out.println(item);
-                    tools.text(gc, tfTextString.getText(), tfFontSize.getText(), cpTextColor.getValue(), cbbFontStyle.getValue().toString(), positionX, positionY, sldOpacity.getValue());
-                }
-            });
-        });
-    }
+                    mainPane.getChildren().addAll(tools.text(tfTextString.getText(), tfFontSize.getText(), cpTextColor.getValue(), cbbFontStyle.getValue().toString(), positionX, positionY, sldOpacity.getValue()));
+                    layerCount();
 
-    void cbToolsSelect(){
-        cbTools.setOnMouseEntered(event -> {
-            item = cbTools.getSelectionModel().getSelectedItem();
-
-            tools = new Tools();
-
-            mainCanva.setOnMouseDragged(event1 -> {
-                positionX = event1.getX();
-                positionY = event1.getY();
-                if(item == "Brush Circle") {
-                    System.out.println(item);
-                    tools.brushCircle(gc, cpFillColor.getValue(), positionX, positionY, sldFillSize.getValue(), sldOpacity.getValue());
-                }
-
-                if(item == "Brush Rectangle") {
-                    System.out.println(item);
-                    tools.brushRect(gc, cpFillColor.getValue(), positionX, positionY, sldFillSize.getValue(), sldCorner.getValue(), sldOpacity.getValue());
                 }
 
                 if(item == "Background Color") {
@@ -241,16 +209,42 @@ public class PikSixController implements Initializable{
                     Double w, h;
                     w = Double.parseDouble(tfCanvaW.getText());
                     h = Double.parseDouble(tfCanvaH.getText());
-                    gc.setFill(cpFillColor.getValue());
-                    gc.fillRect(0,0,w, h);
+                    System.out.println(cpFillColor.getValue().getRed()+", "+cpFillColor.getValue().getGreen()+", "+cpFillColor.getValue().getBlue());
+                    Double r, g, b;
+                    r =  cpFillColor.getValue().getRed();
+                    g =  cpFillColor.getValue().getGreen();
+                    b =  cpFillColor.getValue().getBlue();
+                    System.out.println(r+", "+g+", "+b);
+                    mainPane.setBackground(new Background(new BackgroundFill(Color.color(r, g, b),  CornerRadii.EMPTY,  Insets.EMPTY)));
                 }
-
             });
         });
     }
 
-    void desableP(){
-        cbTools.disableProperty().bind(cbShapes.valueProperty().isEqualTo("Circle"));
+    public void removeShape() {
+        int itemLayer = (int) cbLayer.getSelectionModel().getSelectedItem();
+
+        mainPane.getChildren().remove(itemLayer);
+        cbLayer.getItems().remove(itemLayer);
+        layerCount();
+    }
+/*
+    public void translateShape() {
+        int itemLayer = (int) cbLayer.getSelectionModel().getSelectedItem();
+
+        Double x, y;
+        x = Double.parseDouble(tfShapePosX.getText());
+        y = Double.parseDouble(tfShapePosY.getText());
+        System.out.println(y+" "+x);
+        mainPane.getChildren().get(itemLayer).setTranslateX(x);
+        mainPane.getChildren().get(itemLayer).setTranslateY(y);
+    }*/
+
+    public void layerCount() {
+        cbLayer.getItems().clear();
+        for(int i = 0; i<mainPane.getChildren().size();i++) {
+            cbLayer.getItems().add(i);
+        }
     }
 
     public void onExit(){
@@ -268,7 +262,7 @@ public class PikSixController implements Initializable{
             try{
                 File selectedFile = fc.showSaveDialog(new Stage());
                 if(selectedFile != null){
-                    Image snapshot = mainCanva.snapshot(null, null);
+                    Image snapshot = mainPane.snapshot(null, null);
 
                     ImageIO.write(SwingFXUtils.fromFXImage(snapshot,null), "png", selectedFile);
                 }
@@ -282,20 +276,18 @@ public class PikSixController implements Initializable{
         Double w, h;
         w = Double.parseDouble(tfCanvaW.getText());
         h = Double.parseDouble(tfCanvaH.getText());
-        gc.setFill(Color.WHITE);
-        mainCanva.setWidth(w);
-        mainCanva.setHeight(h);
-        gc.fillRect(0,0, w, h);
-        spMain.setContent(mainCanva);
+        mainPane.setPrefSize(w,h);
+        mainPane.getChildren().clear();
+        mainPane.setBackground(new Background(new BackgroundFill(Color.WHITE,  CornerRadii.EMPTY,  Insets.EMPTY)));
+        cbLayer.getItems().clear();
+
     }
 
     public void resetCanvaSize(){
         Double w, h;
         w = Double.parseDouble(tfCanvaW.getText());
         h = Double.parseDouble(tfCanvaH.getText());
-        mainCanva.setWidth(w);
-        mainCanva.setHeight(h);
-        spMain.setContent(mainCanva);
+        mainPane.setPrefSize(w,h);
     }
 
     public void aboutWindow(){

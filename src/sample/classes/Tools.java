@@ -1,64 +1,55 @@
 package sample.classes;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class Tools {
     BoxBlur bb = new BoxBlur();
     DropShadow ds = new DropShadow();
 
-    public void rect(GraphicsContext gc, Color fillColor, Color strokeColor, Double posX, Double posY, Double p2x, Double p2y, Double fillSize, Double lineSize, Double corner, Double opacity, Double blur, Double shadow){
-        gc.setGlobalAlpha(opacity/100);
-        gc.applyEffect(blurConfig(blur));
-        gc.applyEffect(dropShadowConfig(shadow));
-        gc.setLineWidth(lineSize);
-        gc.setStroke(strokeColor);
-        gc.setFill(fillColor);
-        gc.fillRoundRect(posX, posY,p2x-posX,p2y-posY, corner, corner);
-        gc.strokeRoundRect(posX, posY,p2x-posX,p2y-posY, corner, corner);
+    public Rectangle rect(Color fillColor, Color strokeColor, Double posX, Double posY, Double x, Double y, Double lineSize, Double opacity, Double blur, Double shadow){
+        Rectangle rectangle;
+        rectangle = new Rectangle(posX, posY, x, y);
+        rectangle.setStrokeWidth(lineSize);
+        rectangle.setFill(fillColor);
+        rectangle.setStroke(strokeColor);
+        rectangle.setOpacity(opacity/100);
+
+        return rectangle;
     }
 
-    public void oval(GraphicsContext gc, Color fillColor, Color strokeColor, Double posX, Double posY, Double p2x, Double p2y, Double fillSize, Double lineSize, Double opacity, Double blur, Double shadow){
-        gc.setGlobalAlpha(opacity/100);
-        gc.applyEffect(blurConfig(blur));
-        gc.applyEffect(dropShadowConfig(shadow));
-        gc.setLineWidth(lineSize);
-        gc.setFill(fillColor);
-        gc.setStroke(strokeColor);
-        gc.fillOval(posX, posY,p2x-posX,p2y-posY);
-        gc.strokeOval(posX, posY,p2x-posX,p2y-posY);
+    public Circle oval(Color fillColor, Color strokeColor, Double posX, Double posY, Double x, Double lineSize, Double opacity, Double blur, Double shadow){
+        Circle circle;
+        circle = new Circle(posX, posY, x);
+        circle.setStrokeWidth(lineSize);
+        circle.setFill(fillColor);
+        circle.setStroke(strokeColor);
+        circle.setOpacity(opacity/100);
+
+        return circle;
     }
 
-    public void line(GraphicsContext gc, Double lineSize, Color strokeColor, Double posX, Double posY, Double p2x, Double p2y, Double opacity){
-        gc.setGlobalAlpha(opacity/100);
-        gc.setStroke(strokeColor);
-        gc.setLineWidth(lineSize);
-        gc.strokeLine(posX, posY, p2x, p2y);
+    public Line line(Double lineSize, Color strokeColor, Double posX, Double posY, Double p2x, Double p2y, Double opacity){
+        Line line = new Line(posX, posY, p2x, p2y);
+        line.setStrokeWidth(lineSize);
+        line.setStroke(strokeColor);
+
+        return line;
     }
 
-    public void text(GraphicsContext gc, String text, String textSize, Color textColor, String fontName, Double posX, Double posY, Double opacity){
-        gc.setGlobalAlpha(opacity/100);
+    public Text text(String string, String textSize, Color textColor, String fontName, Double posX, Double posY, Double opacity){
+        Text text = new Text(posX, posY, string);
         Double fs = Double.parseDouble(textSize);
-        gc.setFont(new Font(fontName,fs));
-        gc.setFill(textColor);
-        gc.fillText(text, posX, posY);
-    }
+        text.setFont(new Font(fontName, fs));
+        text.setFill(textColor);
 
-    public void brushRect(GraphicsContext gc, Color fillColor, Double posX, Double posY, Double fillSize, Double corner, Double opacity){
-        gc.setGlobalAlpha(opacity/100);
-        gc.setFill(fillColor);
-        gc.fillRoundRect(posX, posY, fillSize, fillSize, corner,corner);
-    }
-
-        public void brushCircle(GraphicsContext gc, Color fillColor, Double posX, Double posY, Double fillSize, Double opacity){
-        gc.setGlobalAlpha(opacity/100);
-        gc.setFill(fillColor);
-        gc.setLineWidth(0);
-        gc.fillRoundRect(posX, posY, fillSize, fillSize, 100, 100);
+        return text;
     }
 
     public BoxBlur blurConfig(Double blur){

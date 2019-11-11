@@ -49,7 +49,6 @@
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding></Separator>
-                  <JFXComboBox fx:id="cbTools" focusColor="#503256" unFocusColor="#7b4886" />
                   <JFXComboBox fx:id="cbShapes" focusColor="#503256" unFocusColor="#7b4886" />
                </items>
             </ToolBar>
@@ -122,16 +121,16 @@
                         <Insets top="2.0" />
                      </padding>
                   </TitledPane>
-                <TitledPane fx:id="tpFills" animated="false" text="Drawing Tools" textFill="WHITE">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <TitledPane fx:id="tpFills21" animated="false" layoutX="10.0" layoutY="10.0" text="Transform" textFill="WHITE">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <VBox>
                                  <children>
                                     <HBox spacing="10.0">
                                        <children>
-                                          <Label text="Fill Size" />
-                                          <JFXSlider fx:id="sldFillSize" value="70.0" />
+                                          <Label text="Width" />
+                                          <JFXTextField fx:id="tfShapePosX" promptText="100" text="100" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="2.0" />
@@ -140,6 +139,38 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
+                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
+                                       <children>
+                                          <Label layoutX="15.0" layoutY="15.0" text="Height" />
+                                          <JFXTextField fx:id="tfShapePosY" promptText="100" text="100" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <JFXButton fx:id="btnShapeRemove" text="Remove" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+                <TitledPane fx:id="tpFills" animated="false" text="Drawing Tools" textFill="WHITE">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox>
+                                 <children>
                                     <HBox spacing="10.0">
                                        <children>
                                           <Label text="Fill Color" />
@@ -178,18 +209,6 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox spacing="10.0">
-                                       <children>
-                                          <Label text="Corner" />
-                                          <JFXSlider fx:id="sldCorner" value="5.0" />
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="2.0" />
-                                       </VBox.margin>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </HBox>
                                  </children>
                               </VBox>
                            </children>
@@ -217,7 +236,7 @@
                                     <HBox spacing="10.0">
                                        <children>
                                           <Label text="Font Size" />
-                                          <JFXTextField fx:id="tfFontSize" promptText="12" text="12"/>
+                                          <JFXTextField fx:id="tfFontSize" promptText="12" text="12" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="2.0" />
@@ -331,16 +350,15 @@
                               <VBox>
                                  <children>
                                     <HBox spacing="10.0">
-                                       <children>
-                                          <Label text="Fill Size" />
-                                          <JFXSlider fx:id="sldFillSize1" value="70.0" />
-                                       </children>
                                        <VBox.margin>
                                           <Insets top="2.0" />
                                        </VBox.margin>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
+                                       <children>
+                                          <JFXComboBox fx:id="cbLayer" />
+                                       </children>
                                     </HBox>
                                  </children>
                               </VBox>
@@ -360,9 +378,13 @@
       </VBox>
    </right>
    <center>
-      <Pane fx:id="mainPane" prefHeight="600.0" prefWidth="920.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="pane" prefHeight="600.0" prefWidth="920.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane fx:id="spMain" prefHeight="600.0" prefWidth="920.0" />
+            <ScrollPane fx:id="spMain" prefHeight="600.0" prefWidth="920.0">
+               <content>
+                  <Pane fx:id="tfPosY" prefHeight="600.0" prefWidth="920.0" BorderPane.alignment="CENTER" />
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
    </center>
