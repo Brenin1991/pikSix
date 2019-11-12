@@ -17,10 +17,12 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.Credits;
+import sample.classes.DragResizeMod;
 import sample.classes.Tools;
 
 import javax.imageio.ImageIO;
@@ -87,16 +89,19 @@ public class PikSixController implements Initializable{
     private Pane mainPane = new Pane();
 
     @FXML
-    private JFXTextField tfShapePosX;
-
-    @FXML
-    private JFXTextField tfShapePosY;
-
-    @FXML
     private JFXComboBox cbLayer = new JFXComboBox();
 
     @FXML
     private JFXButton btnShapeRemove;
+
+    @FXML
+    private JFXTextField tfShapeRotation;
+
+    @FXML
+    private JFXButton btnShapeUpdate = new JFXButton();
+
+    @FXML
+    private JFXButton btnAddShape = new JFXButton();
 
     // Var
     public GraphicsContext gc;
@@ -148,6 +153,14 @@ public class PikSixController implements Initializable{
                 System.out.println("Remove");
             }
         });
+
+        btnShapeUpdate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                updateShape();
+                System.out.println("Update");
+            }
+        });
     }
 
     void debug(){
@@ -168,21 +181,28 @@ public class PikSixController implements Initializable{
         cbShapes.setOnMouseEntered(event -> {
             item = cbShapes.getSelectionModel().getSelectedItem();
             tools = new Tools();
+
+            btnAddShape.setOnMouseClicked(event1 -> {
+                if(item == "Rectangle") {
+                    System.out.println(item);
+                    Shape shape;
+                    shape = tools.rect(cpFillColor.getValue(), cpBorderColor.getValue(), 0.0, 0.0, 100.0, 100.0, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue());
+                    DragResizeMod.makeResizable(shape);
+                    mainPane.getChildren().addAll(shape);
+                    layerCount();
+                }
+                if(item == "Oval") {
+                    Shape shape;
+                    shape = tools.oval(cpFillColor.getValue(), cpBorderColor.getValue(), 0.0, 0.0, 50.0, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue());
+                    DragResizeMod.makeResizable(shape);
+                    mainPane.getChildren().addAll(shape);
+                    layerCount();
+                }
+            });
+
             mainPane.setOnMouseClicked(event1 -> {
                 positionX = event1.getX();
                 positionY = event1.getY();
-                Double x = Double.parseDouble(tfShapePosX.getText());
-                Double y = Double.parseDouble(tfShapePosY.getText());
-                if(item == "Oval") {
-                    System.out.println(item);
-                    mainPane.getChildren().addAll(tools.oval(cpFillColor.getValue(), cpBorderColor.getValue(), positionX, positionY, x, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue()));
-                    layerCount();
-                }
-                if(item == "Rectangle") {
-                    System.out.println(item);
-                    mainPane.getChildren().addAll(tools.rect(cpFillColor.getValue(), cpBorderColor.getValue(), positionX, positionY, x, y, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue()));
-                    layerCount();
-                }
                 if(item == "Line") {
                     System.out.println(item);
                     mainPane.setOnMouseClicked(event2 -> {
@@ -228,17 +248,21 @@ public class PikSixController implements Initializable{
         cbLayer.getItems().remove(itemLayer);
         layerCount();
     }
-/*
-    public void translateShape() {
-        int itemLayer = (int) cbLayer.getSelectionModel().getSelectedItem();
 
-        Double x, y;
-        x = Double.parseDouble(tfShapePosX.getText());
-        y = Double.parseDouble(tfShapePosY.getText());
-        System.out.println(y+" "+x);
-        mainPane.getChildren().get(itemLayer).setTranslateX(x);
-        mainPane.getChildren().get(itemLayer).setTranslateY(y);
-    }*/
+    public void updateShape() {
+        int itemLayer = (int) cbLayer.getSelectionModel().getSelectedItem();
+        Double rotate;
+
+        Shape shape;
+
+        rotate = Double.parseDouble(tfShapeRotation.getText());
+
+        shape = (Shape) mainPane.getChildren().get(itemLayer);
+        shape.setRotate(rotate);
+        shape.setFill(cpFillColor.getValue());
+        shape.setStroke(cpBorderColor.getValue());
+        shape.setStrokeWidth(sldBorderSize.getValue());
+    }
 
     public void layerCount() {
         cbLayer.getItems().clear();
