@@ -150,3 +150,15 @@
     -fx-background-radius: 5em;
 }
 
+.jfx-text-field {
+    -fx-background-color: #5f4b63;
+    -fx-font-size: 13px;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+
+#spMain .content{
+    -fx-background-color: #5f4b63;
+}

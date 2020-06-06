@@ -21,6 +21,7 @@ import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import jfxtras.labs.util.event.MouseControlUtil;
 import sample.Credits;
 import sample.classes.DragResizeMod;
 import sample.classes.Tools;
@@ -103,6 +104,9 @@ public class PikSixController implements Initializable{
     @FXML
     private JFXButton btnAddShape = new JFXButton();
 
+    @FXML
+    private JFXButton btnSwapUp = new JFXButton();
+
     // Var
     public GraphicsContext gc;
     private double positionX = 0;
@@ -129,6 +133,9 @@ public class PikSixController implements Initializable{
         mainPane.setPrefSize(1100,600);
         spMain.setContent(mainPane);
         spMain.setPrefSize(1100, 600);
+
+
+
 
         btnResize.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -172,7 +179,10 @@ public class PikSixController implements Initializable{
         cbShapes.getItems().addAll("Rectangle", "Oval", "Line", "Text", "Image", "Background Color");
     }
 
-    void cbFontStyleConfig() { cbbFontStyle.getItems().addAll(Font.getFontNames());}
+    void cbFontStyleConfig() {
+        cbbFontStyle.getItems().addAll(Font.getFontNames());
+        cbbFontStyle.setValue("Roboto");
+    }
 
     public void draw(){
         cbShapesSelect();
@@ -198,6 +208,24 @@ public class PikSixController implements Initializable{
                     mainPane.getChildren().addAll(shape);
                     layerCount();
                 }
+                if(item == "Text") {
+                    Shape shape;
+                    System.out.println(item);
+                    shape = tools.text(tfTextString.getText(), tfFontSize.getText(), cpTextColor.getValue(), cbbFontStyle.getValue().toString(), positionX, positionY, sldOpacity.getValue());
+                    MouseControlUtil.makeDraggable(shape);
+
+                    mainPane.getChildren().addAll(shape);
+                    layerCount();
+                }
+                if(item == "Image") {
+                    System.out.println(item);
+                    Shape shape;
+                    shape = tools.image(cpFillColor.getValue(), cpBorderColor.getValue(), 0.0, 0.0, 100.0, 100.0, sldBorderSize.getValue(), sldOpacity.getValue(), sldEffectBlur.getValue(), sldEffectShadow.getValue());
+                    DragResizeMod.makeResizable(shape);
+                    mainPane.getChildren().addAll(shape);
+                    layerCount();
+                }
+
             });
 
             mainPane.setOnMouseClicked(event1 -> {
@@ -217,12 +245,13 @@ public class PikSixController implements Initializable{
                     });
 
                 }
-                if(item == "Text") {
+                /*if(item == "Text") {
                     System.out.println(item);
                     mainPane.getChildren().addAll(tools.text(tfTextString.getText(), tfFontSize.getText(), cpTextColor.getValue(), cbbFontStyle.getValue().toString(), positionX, positionY, sldOpacity.getValue()));
+
                     layerCount();
 
-                }
+                }*/
 
                 if(item == "Background Color") {
                     System.out.println(item);
@@ -256,7 +285,7 @@ public class PikSixController implements Initializable{
         Shape shape;
 
         rotate = Double.parseDouble(tfShapeRotation.getText());
-
+        
         shape = (Shape) mainPane.getChildren().get(itemLayer);
         shape.setRotate(rotate);
         shape.setFill(cpFillColor.getValue());
@@ -279,10 +308,10 @@ public class PikSixController implements Initializable{
         btnSave.setOnMouseClicked(event1 -> {
             FileChooser fc = new FileChooser();
             fc.setTitle("Save File");
-            fc.setInitialDirectory(new File("/home"));
-            fc.setInitialFileName("paint");
+            //fc.setInitialDirectory(new File("/home"));
+            fc.setInitialFileName("project");
             fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PNG File", "*.png"));
-
+            fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPEG File", "*.jpg"));
             try{
                 File selectedFile = fc.showSaveDialog(new Stage());
                 if(selectedFile != null){
@@ -322,5 +351,4 @@ public class PikSixController implements Initializable{
             Logger.getLogger(PikSixController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }

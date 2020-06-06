@@ -42,7 +42,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="background">
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
                <items>
                   <JFXButton fx:id="btnSave" text="Save" />
                   <Separator orientation="VERTICAL">
@@ -75,7 +75,7 @@
                                  <children>
                                     <HBox spacing="10.0">
                                        <children>
-                                          <Label text="Width" />
+                                          <Label text="Width  " />
                                           <JFXTextField fx:id="tfCanvaW" promptText="800" text="800" />
                                        </children>
                                        <VBox.margin>
@@ -147,7 +147,7 @@
                                     <HBox spacing="10.0">
                                        <children>
                                           <Label text="Border Size" />
-                                          <JFXSlider fx:id="sldBorderSize" value="5.0" />
+                                          <JFXSlider fx:id="sldBorderSize" value="0.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -193,7 +193,7 @@
                                     <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
                                        <children>
                                           <Label text="Text" />
-                                          <JFXTextField fx:id="tfTextString" />
+                                          <JFXTextField fx:id="tfTextString" promptText="hello world" />
                                        </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -316,9 +316,6 @@
                               <VBox>
                                  <children>
                                     <HBox spacing="10.0">
-                                       <VBox.margin>
-                                          <Insets top="2.0" />
-                                       </VBox.margin>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
@@ -359,15 +356,15 @@
          </BorderPane.margin>
       </VBox>
    </right>
-   <center>
-      <Pane fx:id="pane" prefHeight="600.0" prefWidth="920.0" BorderPane.alignment="CENTER">
+   <left>
+      <HBox BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane fx:id="spMain" prefHeight="600.0" prefWidth="920.0">
+            <ScrollPane fx:id="spMain">
                <content>
-                  <Pane fx:id="tfPosY" prefHeight="600.0" prefWidth="920.0" BorderPane.alignment="CENTER" />
+                  <Pane fx:id="tfPosY" style="-fx-background-color: back;" />
                </content>
             </ScrollPane>
          </children>
-      </Pane>
-   </center>
+      </HBox>
+   </left>
 </BorderPane>
