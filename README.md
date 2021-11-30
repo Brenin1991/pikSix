@@ -22,7 +22,6 @@ pixel art;__
 
 [Complete presentation (PDF)](aaa)
 
-![](https://github.com/Brenin1991/pikSix/blob/master/screen/1.png)
 ![](https://github.com/Brenin1991/pikSix/blob/master/screen/2.png)
 ![](https://github.com/Brenin1991/pikSix/blob/master/screen/3.png)
 
