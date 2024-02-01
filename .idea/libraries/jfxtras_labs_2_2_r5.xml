@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jfxtras-labs-2.2-r5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/LIBS/jfxtras-labs-2.2-r5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

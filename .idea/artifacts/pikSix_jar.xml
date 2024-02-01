@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pikSix:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pikSix_jar</output-path>
+    <root id="archive" name="pikSix.jar">
+      <element id="module-output" name="pikSix" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/jfxtras-labs-2.2-r5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/jfxtras-controls-0.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/LIBS/javafx-sdk-11/lib/javafx.swing.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

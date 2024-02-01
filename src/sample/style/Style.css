@@ -1,101 +1,162 @@
 .root{
-    -fx-background-color: #25022c;
+    -fx-background-color: #333;
 }
 
 .background{
-    -fx-background-color: #25022c;
+    -fx-background-color: #333;
 }
 
 .label{
     -fx-font-size: 15px;
-    -fx-font-family: 'Roboto', sans-serif;
     -fx-text-fill: white;
     -fx-opacity: 1;
 }
 
 .menu-bar{
-    -fx-background-color: #25022c;
+    -fx-background-color: #333;
 }
 
 .menu:hover{
-    -fx-background-color: #5f4b63;
+    -fx-background-color: #860036;
     -fx-border-size: 2;
 }
 
 .menu:showing{
-    -fx-background-color: #5f4b63;
+    -fx-background-color: #8a264f;
 }
 
 .context-menu{
-    -fx-background-color: #896e8e;
+    -fx-background-color: #f63f87;
 }
 
 .menu-item:hover{
-    -fx-background-color: #503256;
+    -fx-background-color: #c5125c;
 }
 
 .tool-bar{
-    -fx-background-color: #503256;
+    -fx-background-color: #333;
+    -fx-border-color: #444;
 }
 
 .button{
-    -fx-background-color: #5f4b63;
-    -fx-font-size: 13pt;
-    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #444;
     -fx-text-fill: white;
     -fx-opacity: 1;
 }
 
-//Combo-box
-
 .combo-box .list-cell
 {
-    -fx-background-color: #896e8e;
+    -fx-background-color: transparent;
     -fx-padding: 3 0 2 7;
-    -fx-font-size: 13pt;
-        -fx-font-family: 'Roboto', sans-serif;
-        -fx-text-fill: white;
-        -fx-opacity: 1;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+/* File style.css */
+
+.button {
+    -fx-border-color: #c5125c;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-border-width: 2 2 2 2; // top, right, bottom, left;
+    -fx-background-color: #444;
+    -fx-text-fill: white;
+}
+.button:focused {
+    -fx-border-color: grey;
+    -fx-border-radius: 25;
+    -fx-border-width: 2 2 2 2; // top, right, bottom, left;
+    -fx-text-fill: white;
+}
+
+
+.text-field {
+    -fx-border-color: #c5125c;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-border-width: 2 2 2 2; // top, right, bottom, left;
+    -fx-background-color: #444;
+    -fx-text-fill: white;
+}
+.text-field:focused {
+    -fx-border-color: grey;
+    -fx-border-radius: 25;
+    -fx-border-width: 2 2 2 2; // top, right, bottom, left;
+    -fx-text-fill: white;
+}
+
+.combo-box {
+    -fx-border-color: #c5125c;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-border-width: 2 2 2 2; // top, right, bottom, left;
+    -fx-background-color: #444;
+    -fx-text-fill: white;
+}
+
+.combo-box:focused {
+    -fx-border-color: grey;
+    -fx-border-radius: 25;
+    -fx-border-width: 2 2 2 2; // top, right, bottom, left;
+    -fx-text-fill: white;
 }
 
 .combo-box-popup .list-view
 {
-    -fx-background-color: #896e8e;
+    -fx-background-color: black;
 }
 
 .combo-box-popup .list-view .list-cell
 {
-    -fx-padding: 4 0 4 5;
-
-    -fx-background-color: #896e8e;
+    -fx-background-color: transparent;
 }
 
 .combo-box-item{
-    -fx-background-color: #503256;
+    -fx-background-color: trasnparent;
 }
 
 .combo-box-popup .list-view .list-cell:hover{
-    -fx-background-color: #503256;;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.color-picker {
+    -fx-background-color: transparent;
+    -fx-color-label-visible: false;
+
+}
+
+.color-picker .color-picker-label {
+    -fx-text-fill: blue;
+}
+
+.color-picker .picker-color .picker-color-rect {
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+}
+
+.color-palette .hyperlink {
+    visibility: hidden;
 }
 
 /* Styling the slider track */
 .jfx-slider > .track {
-     -fx-background-color: #896e8e;
+     -fx-background-color: transparent;
 }
 
 /* Styling the slider thumb */
 .jfx-slider > .thumb {
-     -fx-background-color: #25022c;
+     -fx-background-color: #333;
 }
 
 /* Styling the filled track */
 .jfx-slider > .colored-track {
-     -fx-background-color: #25022c;
+     -fx-background-color: #333;
 }
 
 /* Styling the animated thumb */
 .jfx-slider > .animated-thumb {
-    -fx-background-color: #25022c;
+    -fx-background-color: #333;
 }
 
 /* Styling the slider value text inside animated thumb */
@@ -104,19 +165,17 @@
      -fx-stroke: white;
 }
 
-// accordion
-
 .accordion {
     -fx-margin: 4 0 4 5;
 }
 
 .accordion .titled-pane > *.content{
-    -fx-background-color: #503256;
-    -fx-border-color: #503256;
+    -fx-background-color: #444;
+    -fx-border-color: #333;
 }
 
 .accordion .titled-pane .title {
-     -fx-background-color: #5f4b63;
+     -fx-background-color: #333;
 }
 
 .accordion .titled-pane .title .label{
@@ -127,7 +186,7 @@
 }
 
 .scroll-pane > .corner {
-    -fx-background-color: #503256;
+    -fx-background-color: #333;
 }
 
 .scroll-bar:horizontal, .scroll-bar:vertical {
@@ -146,8 +205,8 @@
 }
 
 .scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb{
-    -fx-background-color: #503256;
-    -fx-background-radius: 5em;
+    -fx-background-color: #333;
+    -fx-background-radius: 0em;
 }
 
 .jfx-text-field {
@@ -160,5 +219,9 @@
 
 
 #spMain .content{
-    -fx-background-color: #5f4b63;
+    -fx-background-color: #444;
+}
+
+#spMain {
+    -fx-background-color: #444;
 }

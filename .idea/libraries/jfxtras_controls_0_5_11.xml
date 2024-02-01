@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jfxtras-controls-0.5.11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/LIBS/jfxtras-controls-0.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXColorPicker?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXSlider?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PikSixController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="581.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PikSixController">
    <top>
       <VBox prefHeight="70.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -42,28 +48,143 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
                <items>
-                  <JFXButton fx:id="btnSave" text="Save" />
-                  <Separator orientation="VERTICAL">
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
+                     <children>
+                        <Button fx:id="btnSave" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #444;">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/baseline_save_white_48dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                        <ComboBox fx:id="cbShapes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin></ComboBox>
+                        <Button fx:id="btnAddShape" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Add Shape" />
+                     </children>
                      <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding></Separator>
-                  <JFXComboBox fx:id="cbShapes" focusColor="#503256" unFocusColor="#7b4886" />
-                  <JFXButton fx:id="btnAddShape" text="Add Shape" />
+                        <Insets bottom="1.0" right="1.0" top="1.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                </items>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </ToolBar>
          </children>
       </VBox>
    </top>
    <left>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="224.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="10.0" top="10.0" />
-         </BorderPane.margin></VBox>
+         </BorderPane.margin>
+         <children>
+            <Accordion fx:id="acExp11" layoutX="10.0" layoutY="10.0">
+               <panes>
+                  <TitledPane fx:id="tpFills11" animated="false" text="Pages" textFill="WHITE">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <ComboBox fx:id="cbLayer1" />
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="btnShapeRemove1" text="Remove" />
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="btnShapeUpdate1" text="Update" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+            <Accordion fx:id="acExp1">
+               <panes>
+                  <TitledPane fx:id="tpFills1" animated="false" text="Layers" textFill="WHITE">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <ComboBox fx:id="cbLayer" />
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="btnShapeRemove" text="Remove" />
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="btnShapeUpdate" text="Update" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+         </children>
+      </VBox>
    </left>
    <right>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox fx:id="vbInspector" alignment="TOP_RIGHT" depthTest="ENABLE" prefHeight="313.0" prefWidth="224.0" BorderPane.alignment="CENTER">
          <children>
             <Accordion fx:id="acExp">
               <panes>
@@ -76,7 +197,7 @@
                                     <HBox spacing="10.0">
                                        <children>
                                           <Label text="Width  " />
-                                          <JFXTextField fx:id="tfCanvaW" promptText="800" text="800" />
+                                          <TextField fx:id="tfCanvaW" promptText="800" text="800" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="2.0" />
@@ -88,7 +209,7 @@
                                     <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
                                        <children>
                                           <Label layoutX="15.0" layoutY="15.0" text="Height" />
-                                          <JFXTextField fx:id="tfCanvaH" layoutX="76.0" layoutY="15.0" promptText="800" text="800" />
+                                          <TextField fx:id="tfCanvaH" layoutX="76.0" layoutY="15.0" promptText="800" text="800" />
                                        </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -102,7 +223,7 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                        <children>
-                                          <JFXButton fx:id="btnResize" text="Resize" />
+                                          <Button fx:id="btnResize" text="Resize" />
                                        </children>
                                     </HBox>
                                     <HBox layoutX="10.0" layoutY="86.0" spacing="10.0">
@@ -110,7 +231,7 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                        <children>
-                                          <JFXButton fx:id="btnClear" text="Clear" />
+                                          <Button fx:id="btnClear" text="Clear" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -122,57 +243,113 @@
                         <Insets top="2.0" />
                      </padding>
                   </TitledPane>
-                <TitledPane fx:id="tpFills" animated="false" text="Drawing Tools" textFill="WHITE">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <TitledPane fx:id="tpFills21" animated="false" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Transform" textFill="WHITE">
+                     <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
                            <children>
-                              <VBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0">
                                  <children>
-                                    <HBox spacing="10.0">
+                                    <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="15.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Label text="Fill Color" />
-                                          <JFXColorPicker fx:id="cpFillColor" editable="true" maxHeight="41.0" maxWidth="100.0" prefHeight="41.0" prefWidth="100.0">
-                                              <value>
-                                                  <Color blue="0.156" green="0.106" red="0.78" />
-                                              </value>
-                                          </JFXColorPicker>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="70.0" text="Position">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="tfTransPosX" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="50.0" promptText="800" text="800">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tfTransPosY" alignment="CENTER" layoutX="80.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="50.0" promptText="800" text="800">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
                                        </children>
                                        <VBox.margin>
-                                          <Insets top="2.0" />
+                                          <Insets />
                                        </VBox.margin>
                                        <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          <Insets left="5.0" top="10.0" />
                                        </padding>
+                                       <rotationAxis>
+                                          <Point3D />
+                                       </rotationAxis>
                                     </HBox>
-                                    <HBox spacing="10.0">
+                                    <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="15.0">
                                        <children>
-                                          <Label text="Border Size" />
-                                          <JFXSlider fx:id="sldBorderSize" value="0.0" />
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="70.0" text="Size">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="tfTransSizeX" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="50.0" promptText="800" text="800">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tfTransSizeY" alignment="CENTER" layoutX="80.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="50.0" promptText="800" text="800">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
                                        </children>
                                        <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          <Insets left="5.0" top="10.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox spacing="10.0">
+                                    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="15.0">
                                        <children>
-                                          <Label text="Border Color " />
-                                          <JFXColorPicker fx:id="cpBorderColor" editable="true">
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="70.0" text="Rotation">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="tfShapeRotation" prefWidth="50.0" promptText="0" text="0" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+                <TitledPane fx:id="tpFills" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="242.0" text="Fill" textFill="WHITE">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="241.0" spacing="15.0" VBox.vgrow="SOMETIMES">
+                                       <children>
+                                          <ColorPicker fx:id="cpFillColor" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="60.0">
                                               <value>
-                                                  <Color blue="0.116" green="0.0" red="0.234" />
+                                                  <Color red="0.78" green="0.106" blue="0.156" />
                                               </value>
-                                          </JFXColorPicker>
+                                          </ColorPicker>
+                                          <TextField alignment="CENTER" prefWidth="60.0" promptText="100" text="100" />
                                        </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
                                        <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </HBox>
-                                    <HBox spacing="10.0">
-                                       <children>
-                                          <Label layoutX="15.0" layoutY="15.0" text="Rotation" />
-                                          <JFXTextField fx:id="tfShapeRotation" promptText="0" text="0" />
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          <Insets left="10.0" />
                                        </padding>
                                     </HBox>
                                  </children>
@@ -184,56 +361,133 @@
                         <Insets top="2.0" />
                      </padding>
                 </TitledPane>
-                  <TitledPane fx:id="tpFills1" animated="false" layoutX="10.0" layoutY="10.0" text="Text Tools" textFill="WHITE">
+                  <TitledPane fx:id="tpFills3" animated="false" layoutX="10.0" layoutY="64.0" text="Borders" textFill="WHITE">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <VBox>
                                  <children>
-                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
+                                    <HBox alignment="CENTER_LEFT" spacing="15.0">
                                        <children>
-                                          <Label text="Text" />
-                                          <JFXTextField fx:id="tfTextString" promptText="hello world" />
+                                          <ColorPicker fx:id="cpBorderColor" editable="true" prefHeight="25.0" prefWidth="60.0">
+                                              <value>
+                                                  <Color red="0.234" green="0.0" blue="0.116" />
+                                              </value>
+                                          </ColorPicker>
+                                          <TextField alignment="CENTER" layoutX="90.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" promptText="6" text="6" />
+                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="60.0" promptText="100" text="100" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Border size">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <Slider fx:id="sldBorderSize" max="500.0" value="0.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox spacing="10.0">
+                                    <HBox layoutX="10.0" layoutY="54.0" spacing="10.0">
                                        <children>
-                                          <Label text="Font Size" />
-                                          <JFXTextField fx:id="tfFontSize" promptText="12" text="12" />
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Corner size">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <Slider fx:id="sldCornerSize" max="500.0" value="0.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+                  <TitledPane fx:id="tpFills10" animated="false" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Text Tools" textFill="WHITE">
+                     <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                           <children>
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                                 <children>
+                                    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" spacing="15.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Text">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="tfTextString" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="24.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="150.0" promptText="Enter a text" text="Enter a text" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="10.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" spacing="15.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Font Style">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <ComboBox fx:id="cbbFontStyle" maxHeight="27.0" maxWidth="-Infinity" minHeight="27.0" minWidth="-Infinity" prefWidth="150.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="10.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" spacing="15.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Font Size">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="tfFontSize" alignment="CENTER" maxHeight="27.0" maxWidth="1.7976931348623157E308" minHeight="27.0" minWidth="-Infinity" prefWidth="60.0" promptText="12" text="12" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets top="2.0" />
+                                          <Insets />
                                        </VBox.margin>
                                        <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          <Insets left="5.0" top="10.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox spacing="10.0">
+                                    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" spacing="15.0">
                                        <children>
-                                          <Label text="Text Color" />
-                                          <JFXColorPicker fx:id="cpTextColor" editable="true" maxHeight="41.0" maxWidth="100.0" prefHeight="41.0" prefWidth="100.0">
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Text Color">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <ColorPicker fx:id="cpTextColor" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="60.0">
                                              <value>
-                                                <Color blue="0.156" green="0.106" red="0.78" />
+                                                <Color red="0.78" green="0.106" blue="0.156" />
                                              </value>
-                                          </JFXColorPicker>
+                                          </ColorPicker>
                                        </children>
                                        <VBox.margin>
-                                          <Insets top="2.0" />
+                                          <Insets />
                                        </VBox.margin>
                                        <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Font Style" />
-                                          <JFXComboBox fx:id="cbbFontStyle" />
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          <Insets left="5.0" top="10.0" />
                                        </padding>
                                     </HBox>
                                  </children>
@@ -247,9 +501,24 @@
                   </TitledPane>
                   <TitledPane fx:id="tpBorders" animated="false" text="Image Tools" textFill="WHITE">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane>
                            <children>
-                              <VBox />
+                              <VBox>
+                                 <children>
+                                    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" spacing="15.0">
+                                       <children>
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="75.0" text="Preserve Ratio">
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <CheckBox fx:id="cbxImageRatio" mnemonicParsing="false" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children></VBox>
                            </children>
                         </AnchorPane>
                      </content>
@@ -257,16 +526,27 @@
                         <Insets top="2.0" />
                      </padding>
                   </TitledPane>
-                  <TitledPane fx:id="tpEffects" animated="false" text="Effects" textFill="WHITE">
+              </panes>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Accordion>
+            <Separator prefWidth="200.0" />
+            <Accordion fx:id="acExp2" layoutX="10.0" layoutY="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <panes>
+                  <TitledPane fx:id="tpEffects" animated="false" prefHeight="181.0" prefWidth="158.0" text="Drop Shadow" textFill="WHITE">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane>
                            <children>
                               <VBox>
                                  <children>
                                     <HBox spacing="10.0">
                                        <children>
-                                          <Label text="Shadow" />
-                                          <JFXSlider fx:id="sldEffectShadow" value="0.1" />
+                                          <Label text="Width" />
+                                          <Slider fx:id="sldEffectShadow" max="500.0" value="0.1" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="2.0" />
@@ -275,22 +555,37 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox spacing="10.0">
+                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
                                        <children>
-                                          <Label text="Blur" />
-                                          <JFXSlider fx:id="sldEffectBlur" value="0.1" />
+                                          <Label text="Heigth" />
+                                          <Slider fx:id="sldEffectShadow1" max="500.0" value="0.1" />
                                        </children>
-                                       <VBox.margin>
-                                          <Insets top="2.0" />
-                                       </VBox.margin>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox spacing="10.0">
+                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
                                        <children>
-                                          <Label text="Opacity" />
-                                          <JFXSlider fx:id="sldOpacity" value="100.0" />
+                                          <Label text="Offset X" />
+                                          <Slider fx:id="sldEffectShadowOffsetX" min="-100.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="43.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Offset Y" />
+                                          <Slider fx:id="sldEffectShadowOffsetY" min="-100.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="12.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Color" />
+                                          <ColorPicker fx:id="cpEffectShadowColor" />
                                        </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -305,39 +600,50 @@
                         <Insets top="2.0" />
                      </padding>
                   </TitledPane>
-              </panes>
-            </Accordion>
-            <Accordion fx:id="acExp1" layoutX="10.0" layoutY="10.0">
-               <panes>
-                  <TitledPane fx:id="tpFills1" animated="false" text="Layers" textFill="WHITE">
+                  <TitledPane fx:id="tpEffects1" animated="false" layoutX="10.0" layoutY="10.0" prefHeight="181.0" prefWidth="158.0" text="Glow" textFill="WHITE">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane>
                            <children>
                               <VBox>
                                  <children>
                                     <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Level" />
+                                          <Slider fx:id="sldEffectGlowLevel" blockIncrement="0.1" max="1.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
-                                       <children>
-                                          <JFXComboBox fx:id="cbLayer" />
-                                       </children>
                                     </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </TitledPane>
+                  <TitledPane fx:id="tpEffects11" animated="false" layoutX="10.0" layoutY="37.0" prefHeight="181.0" prefWidth="158.0" text="Bloom" textFill="WHITE">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <VBox>
+                                 <children>
                                     <HBox spacing="10.0">
+                                       <children>
+                                          <Label text="Threshold" />
+                                          <Slider fx:id="sldEffectBloomThreshold" blockIncrement="0.1" max="1.0" value="1.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
-                                       <children>
-                                          <JFXButton fx:id="btnShapeRemove" text="Remove" />
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="10.0">
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                       <children>
-                                          <JFXButton fx:id="btnShapeUpdate" text="Update" />
-                                       </children>
                                     </HBox>
                                  </children>
                               </VBox>
@@ -354,17 +660,107 @@
          <BorderPane.margin>
             <Insets top="10.0" />
          </BorderPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </VBox>
    </right>
-   <left>
-      <HBox BorderPane.alignment="CENTER">
-         <children>
-            <ScrollPane fx:id="spMain">
+   <opaqueInsets>
+      <Insets right="10.0" />
+   </opaqueInsets>
+   <center>
+      <BorderPane style="-fx-border-color: #444;">
+         <center>
+            <ScrollPane fx:id="spMain" prefHeight="321.0" prefWidth="964.0" style="-fx-background-color: #444;">
                <content>
-                  <Pane fx:id="tfPosY" style="-fx-background-color: back;" />
+                  <Pane fx:id="spAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #444;">
+                     <children>
+                        <Pane fx:id="zoomPanel">
+                           <children>
+                              <Pane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
                </content>
             </ScrollPane>
+         </center>
+         <top>
+            <Slider fx:id="sldHorizontal" blendMode="LIGHTEN" blockIncrement="1.0" max="1000.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" showTickLabels="true" showTickMarks="true" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="50.0" />
+               </BorderPane.margin>
+            </Slider>
+         </top>
+         <left>
+            <Slider fx:id="sldVertical" blockIncrement="1.0" max="1000.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" snapToTicks="true" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
+            </Slider>
+         </left>
+      </BorderPane>
+   </center>
+   <bottom>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" style="-fx-border-color: #444;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="100.0" spacing="35.0">
+                     <children>
+                        <Text fx:id="lbCoord" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="600, 300px" wrappingWidth="125.263671875" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="30.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="800 x 600px" />
+                     </children>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="16.0" prefWidth="334.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/baseline_zoom_out_white_48dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Slider fx:id="sldZoom" blockIncrement="0.01" majorTickUnit="0.1" max="1.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="100.0" showTickMarks="true" snapToTicks="true" value="0.5" />
+                        <Button layoutX="10.0" layoutY="7.0" mnemonicParsing="false">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/outline_zoom_in_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Text fill="WHITE" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="50%" />
+                     </children>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
          </children>
-      </HBox>
-   </left>
+      </Pane>
+   </bottom>
 </BorderPane>
