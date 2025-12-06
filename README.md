@@ -1,10 +1,6 @@
 # PikSix
 __Version:__ _2019.7.5.2 "Bruce"_
 
-[PikSix Website](https://hardrockstudio.github.io/HardRockStudio-Website/pages/pikSix/index.html)
-
-__2019 - Hard Rock Studio__
-
 ## Summary
 * Presentation
 * license
