@@ -39,7 +39,6 @@ pixel art;__
 * [UML DOCs](https://drive.google.com/open?id=1Piu1rMCd0Pl9XzWAnXbizWGnufuZHXJR)
 
 ## Authorship and contributions
-#### 2019 - Hard Rock Studio - [Official Website](https://hardrockstudio.github.io/HardRockStudio-Website/)
 ###### Main developer - Breno Campos Ribeiro - [GitHub profile](https://github.com/Brenin1991/)
 ###### Font Roboto - Christian Robertson - [Repository Link (GitHub)](https://github.com/google/roboto/)
 ###### JFoenix Library - [Repository Link (GitHub)](https://github.com/jfoenixadmin/JFoenix)
